@@ -1,0 +1,9 @@
+create a data dir in folder <project dir>/pg-docker then
+set volume absolute path -v <path to project dir>/pg-docker/data on docker command below
+docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker \
+ -v <absolute path to project dir>/pg-docker/data:/var/lib/postgresql/data \
+  -d -p 5432:5432  postgres
+psql -U postgres password=docker -h localhost
+
+// for my system only
+docker run --rm --name pg-docker -e POSTGRES_PASSWORD=docker  -v /home/ubu/muh_local_server/pg-docker/data:/var/lib/postgresql/data   -d -p 5432:5432  postgres
